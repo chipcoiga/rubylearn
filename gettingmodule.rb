@@ -32,3 +32,23 @@ module RubyMonk
 end
 
 puts RubyMonk::Parser::TextParser.parser("nha toi co mot con dog")
+
+#return topmost level
+module Kata
+	A=5
+	module Dojo
+		A=7
+		class ScopeIn
+			def push
+				::A
+			end
+		end
+	end
+end
+A=10
+puts Kata::Dojo::ScopeIn.new.push
+#yes the result is 10, so that ::A will return the topmost level value.
+
+
+
+
