@@ -12,6 +12,7 @@ ruby_array = Array.new
 
 #to know about: p/puts/to_s/inspect/print
 p our_array
+puts our_array
 p ruby_array
 puts our_array
 print our_array
@@ -40,13 +41,14 @@ module Kata
 		A=7
 		class ScopeIn
 			def push
-				::A
+				Kata::A
 			end
 		end
 	end
 end
 A=10
 puts Kata::Dojo::ScopeIn.new.push
+#yes the result is 10, so that ::A will return the topmost level value.
 
 
 

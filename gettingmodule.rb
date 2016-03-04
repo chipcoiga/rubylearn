@@ -12,6 +12,7 @@ ruby_array = Array.new
 
 #to know about: p/puts/to_s/inspect/print
 p our_array
+puts our_array
 p ruby_array
 puts our_array
 print our_array
