@@ -68,4 +68,7 @@ end
 lines = File.readlines("test.txt")
 p lines
 p lines[2]
-
+File.open("test.txt","w") do |f|
+	puts f.write "barsss"
+end
+puts File.readlines("test.txt")
