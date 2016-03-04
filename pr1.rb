@@ -33,3 +33,24 @@ def find_frequency(sentence, word)
   end
   return count
 end
+
+#or another way
+def find_frequency(sentence, word)
+  sentence.downcase.split.count(word.downcase)
+end
+
+#problem 4: sort the words in a given sentence
+def string_sort(string)
+	string.split(' ').sort{|x,y| x.length <=> y.length}.join(' ')
+end
+puts string_sort("doi la phu cmn du")
+
+#problem 5: return random elements from an array
+def random_select(array, n)
+  result = Array.new
+  n.times do 
+    result << array[rand(array.length)]
+  end
+  return result
+end
+
