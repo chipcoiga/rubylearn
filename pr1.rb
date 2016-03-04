@@ -88,4 +88,67 @@ def array_of_fixnums?(array)
 end
 
 #problem 11: Kaprekar's number
+#9^2 = 81 = 8+1
+def kaprekar?(k)
+	number_of_k=k.to_s.size
+	k2=(k ** 2).to_s
+	num_right=k2[-number_of_k..-1]
+    num_left=k2[0..(k2.size-num_right.to_s.size-1)].to_i
+	k==num_right.to_i+num_left
+end
+kaprekar(9)
+kaprekar(297)
 
+#problem 12: Enough Contrast
+class Color
+  attr_reader :r, :g, :b
+  def initialize(r, g, b)
+    @r = r
+    @g = g
+    @b = b
+  end
+
+  def brightness_index
+    (299 * @r + 587 * @g + 114 * @b) / 1000
+  end
+
+  def brightness_difference(another_color)
+    (brightness_index-another_color.brightness_index).abs
+  end
+
+  def hue_difference(another_color)
+    (r-another_color.r).abs+(g-another_color.g).abs+(b-another_color.b).abs
+  end
+
+  def enough_contrast?(another_color)
+    brightness_difference(another_color) > 125 && hue_difference(another_color) > 500
+  end
+end
+
+#problem 13: time to run code
+def exec_time(a)
+  begin_time = Time.now
+  a.call
+  return Time.now - begin_time
+end
+
+#problem 14: Number shuffle
+#fucking perfect. I have done. oh yeah.
+def num_of_num(number)
+	number_of_num=1
+	number_size=number.to_s.size
+  while number_size > 1 do
+    number_of_num = number_of_num * 	number_size
+    number_size = number_size - 1 
+  end
+   return number_of_num
+end
+def number_shuffle(number)
+	number_of_num = num_of_num(number)
+	char=number.to_s.split(//)
+	result=[]
+	result << char.shuffle.join('').to_i while result.uniq.size != number_of_num
+	result.uniq.sort
+end
+
+#problem 15: orders and costs
