@@ -181,3 +181,29 @@ class Restaurant
     end
   end
 end
+
+#problem 19: Your sum - The lastest problem
+#yeah, fucking perfect
+class MyArray
+  attr_reader :array
+
+  def initialize(array)
+    @array = array
+  end
+
+  def sum(initial_value = 0)
+    sum = initial_value
+    if block_given?
+      array.each do |num|
+        sum += yield(num)
+      end
+    end
+    unless block_given?
+      array.each do |num|
+        sum += num
+      end
+    end
+    sum
+  end
+end
+
