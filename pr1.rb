@@ -152,3 +152,32 @@ def number_shuffle(number)
 end
 
 #problem 15: orders and costs
+#omg. I'm god :3
+class Restaurant
+  def initialize(menu)
+    @menu = menu
+  end
+
+  def cost(*orders) 
+    result = 0
+    orders.each do |item|
+      puts item
+      item.each do |food_name, num|
+        result = result + @menu[food_name]*item[food_name]
+      end
+    end
+    result
+  end
+end
+#or (solution)
+class Restaurant
+  def initialize(menu)
+    @menu = menu
+  end
+
+  def cost(*orders)
+    orders.inject(0) do |total_cost, order|
+      total_cost + order.keys.inject(0) {|cost, key| cost + @menu[key]*order[key] }
+    end
+  end
+end

@@ -151,3 +151,21 @@ def number_shuffle(number)
 	result.uniq.sort
 end
 
+#problem 15: orders and costs
+#omg. I'm god :3
+class Restaurant
+  def initialize(menu)
+    @menu = menu
+  end
+
+  def cost(*orders) 
+    result = 0
+    orders.each do |item|
+      puts item
+      item.each do |food_name, num|
+        result = result + @menu[food_name]*item[food_name]
+      end
+    end
+    result
+  end
+end
