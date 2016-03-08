@@ -1,0 +1,3 @@
+puts Float.instance_methods.count
+puts Object.instance_methods.count
+class 
